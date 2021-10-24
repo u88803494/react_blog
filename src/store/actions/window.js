@@ -1,6 +1,6 @@
 import * as actionTypes from '../actionTypes';
 
-export const showManagementWindow = postState => ({
+export const showManagementWindow = (postState) => ({
   type: actionTypes.SHOW_ARTICLE_MANAGEMENT_WINDOW,
   postState,
 });

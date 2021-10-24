@@ -5,13 +5,13 @@ import { Media, Col, Image } from 'react-bootstrap';
 
 // region U. UI Markups
 import avatar from '../../images/avatar.png';
-import { imageData } from './image_data';
+import imageData from './image_data';
 import './grid_posts.css';
 // end-region
 
-export const GridPosts = ({ data, historyPush, }) => (
+export const GridPosts = ({ data, historyPush }) => (
   <>
-    {data.map(post => (
+    {data.map((post) => (
       <Media className="blog__post blog__post--grid" key={post.id}>
         <Media.Body className="blog__body">
           <h5
@@ -46,7 +46,7 @@ export const GridPosts = ({ data, historyPush, }) => (
             </div>
           </div>
         </Media.Body>
-        <Col xs={6} md={4} >
+        <Col xs={6} md={4}>
           <Image
             className="blog__picture"
             src={imageData[parseInt(post.id % 10)]}

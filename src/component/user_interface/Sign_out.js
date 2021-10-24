@@ -11,7 +11,7 @@ const SignOut = ({ onHide, thirdPartySignOut }) => {
     onHide();
     clearSignInData();
     thirdPartySignOut();
-  }
+  };
 
   return (
     <>

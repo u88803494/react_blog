@@ -1,4 +1,3 @@
-
 // region 1. Platform Libraries
 import React from 'react';
 import { connect } from 'react-redux';
@@ -18,7 +17,6 @@ const mapStateToProps = (state) => ({
   isLogin: state.adminState.isLogin,
   familyName: state.adminState.profileName,
 });
-
 
 const mapDispatchToProps = (dispatch) => ({
   showManagementWindow: (showData) => (dispatch(windowActions.showManagementWindow(showData))),

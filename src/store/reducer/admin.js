@@ -7,7 +7,7 @@ const adminInitState = {
   userId: null,
   profileName: null,
   error: null,
-}
+};
 
 const adminReducer = (globalState = adminInitState, action) => {
   switch (action.type) {
@@ -33,7 +33,7 @@ const adminReducer = (globalState = adminInitState, action) => {
       return {
         ...globalState,
         isLogin: false,
-        error: action.err
+        error: action.err,
       };
     case actionTypes.GET_COOKIES_LOGIN_STATE:
       return {
@@ -44,10 +44,10 @@ const adminReducer = (globalState = adminInitState, action) => {
       return {
         ...globalState,
         ...adminInitState,
-      }
+      };
     default:
       return globalState;
   }
-}
+};
 
 export default adminReducer;

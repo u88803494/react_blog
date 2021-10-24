@@ -14,55 +14,60 @@ import './post_list.css';
 // end-region
 
 const PostsHeader = ({ /* TODO: To be a new file */
-  isList, setIsList, handleShowWindows, isLogin
-}) => {
-  return (
-    <header className="header">
-      <div className="header__title">部落格文章</div>
-      <div className="header__body">
-        <div className="header__newpost">
-          {isLogin &&
+  isList, setIsList, handleShowWindows, isLogin,
+}) => (
+  <header className="header">
+    <div className="header__title">部落格文章</div>
+    <div className="header__body">
+      <div className="header__newpost">
+        {isLogin
+            && (
             <Button variant="outline-primary" onClick={handleShowWindows} name="create">
               新增文章
-            </Button>}
-        </div>
-        <ButtonGroup aria-label="Basic example">
-          <Button
-            variant={isList ? "outline-success" : "success"}
-            onClick={() => setIsList(false)}
-          >
-            網格
-          </Button>
-          <Button
-            variant={isList ? "success" : "outline-success"}
-            onClick={() => setIsList(true)}
-          >
-            條列
-        </Button>
-        </ButtonGroup>
+            </Button>
+            )}
       </div>
-    </header>
-  )
-}
+      <ButtonGroup aria-label="Basic example">
+        <Button
+          variant={isList ? 'outline-success' : 'success'}
+          onClick={() => setIsList(false)}
+        >
+          網格
+        </Button>
+        <Button
+          variant={isList ? 'success' : 'outline-success'}
+          onClick={() => setIsList(true)}
+        >
+          條列
+        </Button>
+      </ButtonGroup>
+    </div>
+  </header>
+);
 
 const RenderPosts = ({
-  data, history, isList, showManagementWindow, isLogin
+  data, history, isList, showManagementWindow, isLogin,
 }) => {
   const handleShow = (e) => {
     const { id, name } = e.target.dataset;
     showManagementWindow({ method: name, postId: parseInt(id, 10) }); // event 接收的是 string
   };
 
-  const historyPush = e => history.push(`/posts/${e.target.dataset.id}`)
+  const historyPush = (e) => history.push(`/posts/${e.target.dataset.id}`);
 
   return (
     <>
       {isList
-        ? <ListPosts {...{ data, handleShow, historyPush, isLogin }} />
+        ? (
+          <ListPosts {...{
+            data, handleShow, historyPush, isLogin,
+          }}
+          />
+        )
         : <GridPosts {...{ data, handleShow, historyPush }} />}
     </>
-  )
-}
+  );
+};
 
 const Posts = ({ /* TODO: To be a new file, name is Posts  */
   history, postsListData, showManagementWindow, getPosts, shouldGetPosts, isLogin, familyName,
@@ -77,12 +82,21 @@ const Posts = ({ /* TODO: To be a new file, name is Posts  */
 
   return (
     <div className="blog container">
-      <PostsHeader {...{ handleShowWindows, isList, isLogin, setIsList }} />
+      <PostsHeader {...{
+        handleShowWindows, isList, isLogin, setIsList,
+      }}
+      />
       <main className="blog__posts">
         {postsListData.length
-          ? <RenderPosts data={postsListData} {...{ history, isList, isLogin, showManagementWindow }} />
-          : <Spinner animation="border" />
-        }
+          ? (
+            <RenderPosts
+              data={postsListData}
+              {...{
+                history, isList, isLogin, showManagementWindow,
+              }}
+            />
+          )
+          : <Spinner animation="border" />}
       </main>
     </div>
   );

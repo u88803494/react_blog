@@ -6,9 +6,8 @@ import SignIn from './Sign_in';
 import SignOut from './Sign_out';
 
 const Users = ({
-  show, isLogin, profileName, token, userId, onHide, thirdPartyLogin, thirdPartySignOut, getCookiesLoginState
+  show, isLogin, profileName, token, userId, onHide, thirdPartyLogin, thirdPartySignOut, getCookiesLoginState,
 }) => {
-
   useEffect(() => { // 載入 cookie
     const loginState = Cookies.get('loginState');
     if (loginState) {
@@ -18,17 +17,19 @@ const Users = ({
 
   useEffect(() => { // 利用 cookie 儲存登入
     if (isLogin === true) {
-      Cookies.set('loginState', { isLogin, profileName, token, userId, }, { expires: 7 })
+      Cookies.set('loginState', {
+        isLogin, profileName, token, userId,
+      }, { expires: 7 });
       onHide();
-    };
+    }
   }, [isLogin, profileName, token, userId, onHide]);
 
   return (
-    <Modal {...{ show, onHide }} >
+    <Modal {...{ show, onHide }}>
       {
-        !isLogin ?
-          <SignIn {...{ show, onHide, thirdPartyLogin }} /> :
-          <SignOut {...{ onHide, thirdPartySignOut }} />
+        !isLogin
+          ? <SignIn {...{ show, onHide, thirdPartyLogin }} />
+          : <SignOut {...{ onHide, thirdPartySignOut }} />
       }
     </Modal>
   );

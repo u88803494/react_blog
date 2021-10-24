@@ -60,7 +60,7 @@
 //   const signupPopup = () => { // 彈出視窗註冊
 //     firebase.auth().signInWithPopup(provider)
 //       .then(function (result) {
-//         // 可以獲得 Google 提供 token，token 可透過 Google API 獲得其他數據。  
+//         // 可以獲得 Google 提供 token，token 可透過 Google API 獲得其他數據。
 //         var token = result.credential.accessToken;
 //         var user = result.user;
 //         console.log(token)
@@ -79,6 +79,5 @@
 //     </>
 //   );
 // }
-
 
 // export default Test;

@@ -8,17 +8,20 @@ import './list_posts.css';
 // end-region
 
 export const ListPosts = ({
-  data, handleShow, historyPush, isLogin
+  data, handleShow, historyPush, isLogin,
 }) => (
   <>
-    {data.map(post => (
+    {data.map((post) => (
       <ListGroup.Item className="blog__post blog__post--list" key={post.id}>
         <div className="blog__title blog__title--list" data-id={post.id} onClick={historyPush}>
           {post.title}
         </div>
         <div className="blog__controller">
-          {isLogin &&
-            <> {/* 可以嘗試看看把按鈕變小 */}
+          {isLogin
+            && (
+            <>
+              {' '}
+              {/* 可以嘗試看看把按鈕變小 */}
               <Button variant="outline-success" data-name="editing" data-id={post.id} onClick={handleShow}>
                 編輯
               </Button>
@@ -26,8 +29,9 @@ export const ListPosts = ({
                 刪除
               </Button>
             </>
-          }
+            )}
         </div>
-      </ListGroup.Item>))}
+      </ListGroup.Item>
+    ))}
   </>
 );

@@ -6,7 +6,7 @@ const SignIn = ({ onHide, thirdPartyLogin }) => {
   const googleSignin = () => { // 彈出視窗註冊
     const provider = new firebase.auth.GoogleAuthProvider(); // google 註冊初始
     thirdPartyLogin(provider);
-  }
+  };
 
   return (
     <>
