@@ -2,19 +2,24 @@
 import axios from 'axios';
 // end-region
 
-export const createPost = (post) => (axios.post('https://qootest.com/posts/', post));
+// TODO: Change to use firebase
+const LIDEMY_STUDENT_URL = 'https://student-json-api.lidemy.me';
+const BLOG_PATH = '/posts';
+const WRONG_BLOG_PATH = '/poss';
 
-export const getPosts = () => (axios.get('https://qootest.com/posts?_sort=id&_order=desc')); // 逆排序改用伺服的
+export const createPost = (post) => (axios.post(`${LIDEMY_STUDENT_URL}${BLOG_PATH}`, post));
 
-export const getPost = (postId) => (axios.get(`https://qootest.com/posts/${postId}`));
+export const getPosts = () => (axios.get(`${LIDEMY_STUDENT_URL}${BLOG_PATH}?_sort=id&_order=desc`));
 
-export const updatePost = (post) => (axios.put(`https://qootest.com/posts/${post.id}`, post));
+export const getPost = (postId) => (axios.get(`${LIDEMY_STUDENT_URL}${BLOG_PATH}/${postId}`));
 
-export const deletePost = (postId) => (axios.delete(`https://qootest.com/posts/${postId}`));
+export const updatePost = (post) => (axios.put(`${LIDEMY_STUDENT_URL}${BLOG_PATH}/${post.id}`, post));
+
+export const deletePost = (postId) => (axios.delete(`${LIDEMY_STUDENT_URL}${BLOG_PATH}/${postId}`));
 
 // wrong API
-export const errorCreatePost = (post) => (axios.post('https://qootest.com/poss/', post));
+export const errorCreatePost = (post) => (axios.post(`${LIDEMY_STUDENT_URL}${WRONG_BLOG_PATH}`, post));
 
-export const errorUpdatePost = (post) => (axios.put(`https://qootest.com/poss/${post.id}`, post));
+export const errorUpdatePost = (post) => (axios.put(`${LIDEMY_STUDENT_URL}${WRONG_BLOG_PATH}/${post.id}`, post));
 
-export const errorDeletePost = (postId) => (axios.delete(`https://qootest.com/poss/${postId}`));
+export const errorDeletePost = (postId) => (axios.delete(`${LIDEMY_STUDENT_URL}${WRONG_BLOG_PATH}/${postId}`));
