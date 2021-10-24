@@ -6,7 +6,15 @@ import SignIn from './Sign_in';
 import SignOut from './Sign_out';
 
 const Users = ({
-  show, isLogin, profileName, token, userId, onHide, thirdPartyLogin, thirdPartySignOut, getCookiesLoginState
+  isLogin,
+  getCookiesLoginState,
+  onHide,
+  profileName,
+  show,
+  token,
+  thirdPartyLogin,
+  thirdPartySignOut,
+  userId,
 }) => {
 
   useEffect(() => { // 載入 cookie
@@ -25,11 +33,11 @@ const Users = ({
 
   return (
     <Modal {...{ show, onHide }} >
-      {
-        !isLogin ?
-          <SignIn {...{ show, onHide, thirdPartyLogin }} /> :
-          <SignOut {...{ onHide, thirdPartySignOut }} />
-      }
+      {!isLogin ? (
+        <SignIn {...{ show, onHide, thirdPartyLogin }} />
+      ) : (
+        <SignOut {...{ onHide, thirdPartySignOut }} />
+      )}
     </Modal>
   );
 };

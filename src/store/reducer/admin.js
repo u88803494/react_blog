@@ -1,13 +1,14 @@
 import * as actionTypes from '../actionTypes';
 
 const adminInitState = {
-  show: false,
+  error: null,
   isLogin: false,
+  lidemyToken: null,
+  profileName: null,
+  show: false,
   token: null,
   userId: null,
-  profileName: null,
-  error: null,
-}
+};
 
 const adminReducer = (globalState = adminInitState, action) => {
   switch (action.type) {
@@ -21,13 +22,20 @@ const adminReducer = (globalState = adminInitState, action) => {
         ...globalState,
         show: false,
       };
-    case actionTypes.THIRD_PARTY_LOGIN_FULFILLED:
+    case actionTypes.LIDEMY_GOOGLE_LOGIN_FULFILLED:
       return {
         ...globalState,
         isLogin: true,
-        token: action.res.credential.accessToken,
-        userId: action.res.additionalUserInfo.profile.id,
-        profileName: action.res.additionalUserInfo.profile.family_name,
+        lidemyToken: action.res.token,
+        profileName: action.thirdPartyData.additionalUserInfo.profile.family_name,
+        token: action.thirdPartyData.credential.accessToken,
+        userId: action.thirdPartyData.additionalUserInfo.profile.id,
+      };
+    case actionTypes.LIDEMY_GOOGLE_LOGIN_REJECTED:
+      return {
+        ...globalState,
+        isLogin: false,
+        error: action.err
       };
     case actionTypes.THIRD_PARTY_LOGIN_REJECTED:
       return {
@@ -40,7 +48,7 @@ const adminReducer = (globalState = adminInitState, action) => {
         ...globalState,
         ...action.loginState,
       };
-    case actionTypes.THIRD_PARTY_SIGNOUT:
+    case actionTypes.THIRD_PARTY_SIGN_OUT:
       return {
         ...globalState,
         ...adminInitState,

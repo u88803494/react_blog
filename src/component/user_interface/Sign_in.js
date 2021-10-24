@@ -3,7 +3,7 @@ import { Button, Modal } from 'react-bootstrap';
 import firebase from 'firebase';
 
 const SignIn = ({ onHide, thirdPartyLogin }) => {
-  const googleSignin = () => { // 彈出視窗註冊
+  const googleSignIn = () => { // 彈出視窗註冊
     const provider = new firebase.auth.GoogleAuthProvider(); // google 註冊初始
     thirdPartyLogin(provider);
   }
@@ -14,7 +14,7 @@ const SignIn = ({ onHide, thirdPartyLogin }) => {
         <Modal.Title>登入</Modal.Title>
       </Modal.Header>
       <Modal.Footer>
-        <Button variant="danger" onClick={googleSignin}>
+        <Button variant="danger" onClick={googleSignIn}>
           GOOGLE 登入
         </Button>
         <Button variant="secondary" onClick={onHide}>

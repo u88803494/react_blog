@@ -23,3 +23,6 @@ export const errorCreatePost = (post) => (axios.post(`${LIDEMY_STUDENT_URL}${WRO
 export const errorUpdatePost = (post) => (axios.put(`${LIDEMY_STUDENT_URL}${WRONG_BLOG_PATH}/${post.id}`, post));
 
 export const errorDeletePost = (postId) => (axios.delete(`${LIDEMY_STUDENT_URL}${WRONG_BLOG_PATH}/${postId}`));
+
+// member
+export const logInLidemy = (user) => (axios.post(`${LIDEMY_STUDENT_URL}/login`, user))
