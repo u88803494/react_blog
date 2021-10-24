@@ -8,6 +8,7 @@ import SignOut from './Sign_out';
 const Users = ({
   isLogin,
   getCookiesLoginState,
+  lidemyToken,
   onHide,
   profileName,
   show,
@@ -26,10 +27,14 @@ const Users = ({
 
   useEffect(() => { // 利用 cookie 儲存登入
     if (isLogin === true) {
-      Cookies.set('loginState', { isLogin, profileName, token, userId, }, { expires: 7 })
+      Cookies.set(
+        'loginState',
+        { isLogin, profileName, token, userId, lidemyToken },
+        { expires: 7 }
+      );
       onHide();
     };
-  }, [isLogin, profileName, token, userId, onHide]);
+  }, [isLogin, lidemyToken, profileName, token, userId, onHide]);
 
   return (
     <Modal {...{ show, onHide }} >

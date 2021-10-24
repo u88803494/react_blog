@@ -26,7 +26,7 @@ const adminReducer = (globalState = adminInitState, action) => {
       return {
         ...globalState,
         isLogin: true,
-        lidemyToken: action.res.token,
+        lidemyToken: action.res.data.token,
         profileName: action.thirdPartyData.additionalUserInfo.profile.family_name,
         token: action.thirdPartyData.credential.accessToken,
         userId: action.thirdPartyData.additionalUserInfo.profile.id,
