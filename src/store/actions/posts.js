@@ -15,13 +15,13 @@ export const createPostRejected = (err) => ({
 
 export const createPost = post => (dispatch) => {
   webAPIs.createPost(post)
-    .then((res) => res.status <= 300 && dispatch(createPostFulfilled()))
+    .then(() => dispatch(createPostFulfilled()))
     .catch((err) => dispatch(createPostRejected(err)));
 };
 
 export const errorCreatePost = post => (dispatch) => {
   webAPIs.errorCreatePost(post)
-    .then((res) => res.status <= 300 && dispatch(createPostFulfilled()))
+    .then(() => dispatch(createPostFulfilled()))
     .catch((err) => dispatch(createPostRejected(err)));
 };
 
@@ -60,13 +60,13 @@ export const updatePostRejected = (err) => ({
 
 export const updatePost = post => (dispatch) => {
   webAPIs.updatePost(post)
-    .then((res) => res.status <= 300 && dispatch(updatePostFulfilled()))
+    .then(() => dispatch(updatePostFulfilled()))
     .catch((err) => dispatch(updatePostRejected(err)));
 };
 
 export const errorUpdatePost = post => (dispatch) => {
   webAPIs.errorUpdatePost(post)
-    .then((res) => res.status <= 300 && dispatch(updatePostFulfilled()))
+    .then(() => dispatch(updatePostFulfilled()))
     .catch((err) => dispatch(updatePostRejected(err)));
 };
 
@@ -82,12 +82,12 @@ export const deletePostRejected = (err) => ({
 
 export const deletePost = (id) => (dispatch) => {
   webAPIs.deletePost(id)
-    .then((res) => res.status <= 300 && dispatch(deletePostFulfilled()))
+    .then(() => dispatch(deletePostFulfilled()))
     .catch((err) => dispatch(deletePostRejected(err)));
 };
 
 export const errorDeletePost = (id) => (dispatch) => {
   webAPIs.errorDeletePost(id)
-    .then((res) => res.status <= 300 && dispatch(deletePostFulfilled()))
+    .then(() => dispatch(deletePostFulfilled()))
     .catch((err) => dispatch(deletePostRejected(err)));
 };
