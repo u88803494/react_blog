@@ -1,9 +1,17 @@
+// region 1. Platform Libraries
+import Cookies from 'js-cookie';
 import React, { useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
-import Cookies from 'js-cookie';
-import './users.css';
+// end-region
+
+// region 2. Project Libraries
 import SignIn from './Sign_in';
 import SignOut from './Sign_out';
+// end-region
+
+// region U. UI Markups
+import './users.css';
+// end-region
 
 const Users = ({
   isLogin,

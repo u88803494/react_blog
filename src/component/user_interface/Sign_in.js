@@ -1,6 +1,8 @@
+// region 1. Platform Libraries
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import firebase from 'firebase';
+// end-region
 
 const SignIn = ({ onHide, thirdPartyLogin }) => {
   const googleSignIn = () => { // 彈出視窗註冊

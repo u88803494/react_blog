@@ -1,4 +1,6 @@
+// region 2. Project Libraries
 import * as actionTypes from '../actionTypes';
+// end-region
 
 const adminInitState = {
   error: null,
