@@ -9,17 +9,18 @@ const BLOG_PATH = '/posts';
 const WRONG_BLOG_PATH = '/poss';
 
 const headers = function () {
-  const { lidemyToken } = JSON.parse(Cookies.get('loginState'));
-  return { headers: { Authorization: `Bearer ${lidemyToken}` } }
-}();
+  const loginState = Cookies.get('loginState')
+  const { lidemyToken } = JSON.parse(loginState);
+  return loginState ? { headers: { Authorization: `Bearer ${lidemyToken}` } } : {};
+};
 
-export const createPost = (post) => (axios.post(`${LIDEMY_STUDENT_URL}${BLOG_PATH}`, post, headers));
+export const createPost = (post) => (axios.post(`${LIDEMY_STUDENT_URL}${BLOG_PATH}`, post, headers()));
 
 export const getPosts = () => (axios.get(`${LIDEMY_STUDENT_URL}${BLOG_PATH}?_sort=id&_order=desc`));
 
 export const getPost = (postId) => (axios.get(`${LIDEMY_STUDENT_URL}${BLOG_PATH}/${postId}`));
 
-export const updatePost = (post) => (axios.put(`${LIDEMY_STUDENT_URL}${BLOG_PATH}/${post.id}`, post, headers));
+export const updatePost = (post) => (axios.put(`${LIDEMY_STUDENT_URL}${BLOG_PATH}/${post.id}`, post, headers()));
 
 export const deletePost = (postId) => (axios.delete(`${LIDEMY_STUDENT_URL}${BLOG_PATH}/${postId}`));
 
