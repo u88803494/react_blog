@@ -1,5 +1,5 @@
 // region 1. Platform Libraries
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import React, { useEffect } from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
 // end-region
