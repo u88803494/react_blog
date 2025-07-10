@@ -2,10 +2,6 @@
 import React from 'react';
 // end-region
 
-// region 2. Project Libraries
-import { Jumbotron } from 'react-bootstrap';
-// end-region
-
 // region U. UI Markups
 import './about.css';
 // end-region
