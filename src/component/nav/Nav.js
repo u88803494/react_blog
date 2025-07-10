@@ -54,12 +54,13 @@ class TheNavbar extends React.Component {
 
   shouldHidden = () => {
     const { movedY, positionY } = this.state;
-    if (movedY >= 80) {
+    // 增加隱藏的門檻，避免輕微滾動就隱藏導航欄
+    if (movedY >= 150) {
       this.setState({
         movedY: 0,
         isHidden: true,
       });
-    } else if (movedY <= -175 || positionY <= 35) {
+    } else if (movedY <= -200 || positionY <= 50) {
       this.setState({
         movedY: 0,
         isHidden: false,

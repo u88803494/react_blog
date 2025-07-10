@@ -18,7 +18,8 @@
 /* 隐藏动画 */
 .navbar--hide {
   transform: translateY(-100%);
-  opacity: 0;
+  opacity: 0.8;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 /* 品牌标志 */

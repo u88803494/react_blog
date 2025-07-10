@@ -38,7 +38,7 @@ const Advantages = ({ avaData }) => (
 const Home = () => {
   const avaData = [
     {
-      url: 'https://images.unsplash.com/photo-1486312338219-ce68e2c6b81d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      url: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80',
       title: '文章功能',
       text: '可以新增、刪除、編輯文章，提供完整的內容管理體驗',
       footer: '功能強大',
