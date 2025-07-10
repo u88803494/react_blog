@@ -1,3 +1,72 @@
+/* App主容器 */
 .App {
-  margin-top: 56px;
+  margin-top: 0;
+  min-height: 100vh;
+  position: relative;
+  background: var(--bg-primary);
+}
+
+/* 内容区域适应导航栏 */
+.App > div:not(.navbar):not(.fixed-top) {
+  margin-top: 0;
+}
+
+/* 确保导航栏下的内容有适当的间距 */
+.App .navbar + * {
+  margin-top: 0;
+}
+
+/* 页面过渡效果 */
+.page-transition {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式容器 */
+.container-custom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 576px) {
+  .container-custom {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding: 0 2rem;
+  }
+}
+
+/* 确保footer位于底部 */
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.App > *:not(.navbar):not(.footer) {
+  flex: 1;
+}
+
+/* 滚动行为优化 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 确保内容不被固定导航栏遮盖 */
+body {
+  scroll-padding-top: 80px;
 }
